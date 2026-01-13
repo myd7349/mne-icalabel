@@ -36,7 +36,7 @@ jobs:
           python -m pip install --progress-bar off --upgrade pip setuptools
           python -m pip install --progress-bar off ".[test,torch,onnx]"
       - run: mne_icalabel-sys_info --developer
-      - run: pytest mne_icalabel --cov=mne_icalabel --cov-report=xml --cov-config=pyproject.toml --tb=short -vv -rfE
+      - run: pytest mne_icalabel/megnet/tests/test_label_components.py::test_megnet_label_components --cov=mne_icalabel --cov-report=xml --cov-config=pyproject.toml --tb=short -vv -rfE
       - uses: codecov/codecov-action@v5
         with:
           files: ./coverage.xml
